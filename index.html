@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronomêtro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Cronomêtro</h1>
+    <br />
+    <!-- Inicio: Div hh-ss Cronometro hh e ss -->
+    <div class="mm-ss">
+        <h2 id="counter">00:00</h2>
+    </div>
+    <!--Fim: Div hh-ss Cronometro hh e ss -->
+    <!-- Inicio: div Botões Iniciar cronomêtro e Encerrar-->
+    <div class="botoes">
+        <button id="botaoI" onclick="iniciar()">Iniciar</button>
+        <button id="botaoE" onclick="encerrar()">Encerrar</button>
+    </div>
+    <!--Fim: div botões Botões Iniciar cronomêtro e Encerrar -->
+
+
+    <script>
+        //Variaveis com valores 
+        var mm = 0;
+        var ss = 0;
+        var tempo = 1000;
+        var cronometro;
+
+        function iniciar() {
+            //setInterval, vai ver os intervalos, recebendo função "function" anônima e tempo.
+            cronometro = setInterval(function () {
+                contagem()
+            }, tempo);
+
+        }
+
+        //zerando valores zerando intervalo com clearInterval.
+        function encerrar() {
+            clearInterval(cronometro);
+            mm = 0;
+            ss = 0;
+            document.getElementById("counter").innerText = "00:00";
+        }
+
+        // verificação de contagem até 59 segundos se é igual a 0 e se 59 é igual a minuto
+        function contagem() {
+            ss++;
+            if (ss === 59) {
+                ss = 0;
+                mm++;
+                if (mm === 59) {
+                    mm = 0;
+                }
+            }
+        // Se 10 é maior que segundos e mm é maior que 10, exibição de 00:00 se for falso ou vendade roda, função lup.
+            if (ss < 10 && mm < 10) {
+                tela = "0" + mm + ":" + "0" + ss
+            } else if (mm < 10) {
+                tela = "0" + mm + ":" + ss
+            } else if (ss < 10) {
+                tela = mm + ":" + "0" + ss
+            } else {
+                tela = mm + ":" + ss
+            }
+        // Exibição na tela
+            document.getElementById("counter").innerText = tela
+            return tela
+        }
+
+    </script>
+</body>
+
+</html>
