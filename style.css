@@ -9,32 +9,40 @@
         margin: 0;
         padding: 0;
         
+        
+    }
+
+    img{
+        margin-left: 44vw;
+        top: 2vh;
+
+
     }
     /*Titulo cronomêtro*/
     h1{
         color:rgb(215, 212, 212);
         font-size: 9vh;
         margin-left: 36vw;
-        top: 40vh;
+        top: 5vh;
     }
     /* Div hh e ss */
     h2{
         font-size: 5vh;
         margin-left: 45vw;
-        top: 43vh
+        top: 5vh
     }
     /*Area botões*/
     .botoes {
     /* Div botão margin-left esta movfendo para a esqueda "emburrando os botões" */
         margin-left: 40vw;
      /* posicionando os botões para baixo */
-        top: 50vh;
+        top: 10vh;
     }
+
     /* Div botão "Inicio", cor, largura e altura */
     .botoes #botaoI{
     /* cor da font */
         color: rgb(0, 0, 0);
-        background-color:#45ac47;
     /* Width: altura */
         width: 15vh;
     /* Heigth: largura */
@@ -43,9 +51,11 @@
         margin-right: 5vh;
     /* Tirando a borda deixando o botão sem borda */
         font-size: 3vh;
-    /* Borda do botão */
-        border-radius: 30px;
         
+    }
+
+    .botoes .botao2{
+        background-color: rgb(247, 127, 127);
     }
     .botoes #botaoE{
     /* cor da font */
@@ -57,9 +67,7 @@
     /* Heigth: largura */
         height: 40px;
     /* Tirando a borda deixando o botão sem borda */
-        font-size: 3vh;
-    /* Borda do botão */
-        border-radius: 30px;
+        font-size: 3vh
     }
 
     

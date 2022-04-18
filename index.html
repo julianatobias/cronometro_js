@@ -7,9 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cronomêtro</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./cronometro.png">
+
+
+
+    <style>
+        .green{
+            background-color: #a5f1a9;
+        }
+        .red{
+            background-color: rgb(235, 115, 115);
+        }
+    </style>
 </head>
 
 <body>
+    
+    <img src="./cronometro.png" alt="Imagem do Crónometro">
 
     <h1>Cronomêtro</h1>
     <br />
@@ -20,9 +34,10 @@
     <!--Fim: Div hh-ss Cronometro hh e ss -->
     <!-- Inicio: div Botões Iniciar cronomêtro e Encerrar-->
     <div class="botoes">
-        <button id="botaoI" onclick="iniciar()">Iniciar</button>
+        <button class="green" id="botaoI"  onclick="iniciar()">Iniciar</button>
         <button id="botaoE" onclick="encerrar()">Encerrar</button>
     </div>
+   
     <!--Fim: div botões Botões Iniciar cronomêtro e Encerrar -->
 
 
@@ -31,24 +46,45 @@
         var mm = 0;
         var ss = 0;
         var tempo = 1000;
-        var cronometro;
+        var cronometro; 
+        var botaoI = document.getElementById("botaoI");
 
+        var flag = false;
+
+        
         function iniciar() {
-            //setInterval, vai ver os intervalos, recebendo função "function" anônima e tempo.
-            cronometro = setInterval(function () {
-                contagem()
-            }, tempo);
+            // se for diferente de falso fica vermelho e começa a contagem.
+            if(!flag) {
+                //setInterval, vai ver os intervalos, recebendo função "function" anônima e tempo.
+                cronometro = setInterval(function () {
+                    contagem()
+                }, tempo);
+                botaoI.classList.add('red');
+                botaoI.classList.remove('green');
+                botaoI.innerText = "Parar";
+                flag = true;
+            // se não for diferente de falso ficar verde e para a contagem.
+            }else{
+                botaoI.classList.add('green');
+                botaoI.classList.remove('red');
+                botaoI.innerText = "Iniciar";
+                clearInterval(cronometro);
+                flag = false;
+            }
 
         }
-
+    
         //zerando valores zerando intervalo com clearInterval.
         function encerrar() {
-            clearInterval(cronometro);
-            mm = 0;
-            ss = 0;
-            document.getElementById("counter").innerText = "00:00";
+            if(flag){
+                alert('Cronômetro rodando, clique parar para encerrar a contagem');
+            }else{
+                clearInterval(cronometro);
+                mm = 0;
+                ss = 0;
+                document.getElementById("counter").innerText = "00:00";
+            }
         }
-
         // verificação de contagem até 59 segundos se é igual a 0 e se 59 é igual a minuto
         function contagem() {
             ss++;
@@ -71,6 +107,7 @@
             }
         // Exibição na tela
             document.getElementById("counter").innerText = tela
+
             return tela
         }
 
