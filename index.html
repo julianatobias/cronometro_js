@@ -10,7 +10,7 @@
     <link rel="icon" href="./cronometro.png">
 
 
-
+    <!-- Cores do botão Iniciar e parar-->
     <style>
         .green{
             background-color: #a5f1a9;
@@ -32,6 +32,7 @@
         <h2 id="counter">00:00</h2>
     </div>
     <!--Fim: Div hh-ss Cronometro hh e ss -->
+
     <!-- Inicio: div Botões Iniciar cronomêtro e Encerrar-->
     <div class="botoes">
         <button class="green" id="botaoI"  onclick="iniciar()">Iniciar</button>
@@ -53,9 +54,9 @@
 
         
         function iniciar() {
-            // se for diferente de falso fica vermelho e começa a contagem.
+    // Se for diferente de falso fica vermelho e começa a contagem.
             if(!flag) {
-                //setInterval, vai ver os intervalos, recebendo função "function" anônima e tempo.
+        //setInterval, vai ver os intervalos, recebendo função "function" anônima e tempo.
                 cronometro = setInterval(function () {
                     contagem()
                 }, tempo);
@@ -63,7 +64,7 @@
                 botaoI.classList.remove('green');
                 botaoI.innerText = "Parar";
                 flag = true;
-            // se não for diferente de falso ficar verde e para a contagem.
+     // Se não for diferente de falso ficar verde e para a contagem.
             }else{
                 botaoI.classList.add('green');
                 botaoI.classList.remove('red');
@@ -74,7 +75,7 @@
 
         }
     
-        //zerando valores zerando intervalo com clearInterval.
+    //Zerando valores zerando intervalo com clearInterval.
         function encerrar() {
             if(flag){
                 alert('Cronômetro rodando, clique parar para encerrar a contagem');
@@ -85,7 +86,7 @@
                 document.getElementById("counter").innerText = "00:00";
             }
         }
-        // verificação de contagem até 59 segundos se é igual a 0 e se 59 é igual a minuto
+    // Verificação de contagem até 59 segundos se é igual a 0 e se 59 é igual a minuto
         function contagem() {
             ss++;
             if (ss === 59) {
@@ -95,7 +96,7 @@
                     mm = 0;
                 }
             }
-        // Se 10 é maior que segundos e mm é maior que 10, exibição de 00:00 se for falso ou vendade roda, função lup.
+    // Se 10 é maior que segundos e mm é maior que 10, exibição de 00:00 se for falso ou vendade roda, função lup.
             if (ss < 10 && mm < 10) {
                 tela = "0" + mm + ":" + "0" + ss
             } else if (mm < 10) {
@@ -105,7 +106,7 @@
             } else {
                 tela = mm + ":" + ss
             }
-        // Exibição na tela
+    // Exibição na tela
             document.getElementById("counter").innerText = tela
 
             return tela

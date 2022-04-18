@@ -1,6 +1,3 @@
-
-
-
     /*Area: Pagina */
     * {
         position: relative;
@@ -8,15 +5,11 @@
         background-color:#3374f5;
         margin: 0;
         padding: 0;
-        
-        
     }
-
+    /* imagem cronometro posicionamento*/
     img{
         margin-left: 44vw;
         top: 2vh;
-
-
     }
     /*Titulo cronomêtro*/
     h1{
@@ -38,7 +31,6 @@
      /* posicionando os botões para baixo */
         top: 10vh;
     }
-
     /* Div botão "Inicio", cor, largura e altura */
     .botoes #botaoI{
     /* cor da font */
@@ -51,9 +43,7 @@
         margin-right: 5vh;
     /* Tirando a borda deixando o botão sem borda */
         font-size: 3vh;
-        
     }
-
     .botoes .botao2{
         background-color: rgb(247, 127, 127);
     }
